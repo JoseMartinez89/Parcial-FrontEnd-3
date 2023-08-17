@@ -12,11 +12,12 @@ const Form = () => {
     const [error, setError] = useState(false)
     let regex = /\s/g;
     const handleSubmit = () => {
-        if (vehiculo.marca.length >= 3 && regex(vehiculo.marca) && vehiculo.modelo.length >= 6) {
+        if (vehiculo.marca.length >= 3 || regex.test(vehiculo.marca) && vehiculo.modelo.length >= 6) {
             setShow(true)
             setError(false)
         }else{
             setError(true)
+            setShow(false)
         }
        
     }
